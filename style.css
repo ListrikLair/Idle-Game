@@ -1,0 +1,78 @@
+body{
+    overflow: hidden;
+}
+
+#app{
+    background-image: url(img/waffleBackground.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    margin-left: -8px;
+    margin-top: -10px;
+}
+
+#waffle{
+    display: flex;
+    position: absolute;
+    left: 50%;
+    margin-left: -11rem;
+    height: 22rem;
+    width: 22rem;
+    justify-content: center;
+}
+
+#waffle img{
+    cursor: pointer;
+    object-fit: contain;
+    width: 20rem;
+}
+
+#waffle img:hover{
+    width: 22rem;
+}
+
+#waffle img:active{
+    width: 18rem;
+}
+
+#stats{
+    max-width: 20vw;
+    background-color: rgb(181, 107, 16);
+    border: solid 2px orange;
+    opacity: 90%;
+    font-size: 200%;
+}
+
+#upgrades{
+    display: grid;
+    grid-template-columns: repeat(2, 12vw);
+    grid-template-rows: repeat(3, 10vh);
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 90%;
+    border: solid 2px orange;
+}
+
+#upgrades > div{
+    background-color: rgb(181, 107, 16);
+    font-size: 200%;
+    border-top: solid 2px orange;
+    line-height: 10vh;
+}
+
+#upgrades > div > img{
+    height: 9vh;
+}
+
+#upgrades > div > img:hover{
+    opacity: 50%;
+}
+
+#buffs{
+    position: absolute;
+    right: 20%;
+    top: 0;
+}
