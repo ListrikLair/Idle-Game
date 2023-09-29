@@ -28,46 +28,46 @@ let model = {
             'autoStrength': 100000,
         },
     ],
-    'passiveBuffs': [
+    'autoBuffs': [
         autoClicker = [
             strengthMulitiplier1 = {
                 'amountCriteria': 25,
                 'unlocked': false,
-                'buff': 2,
+                'multiplier': 2,
             },
             strengthMulitiplier2 = {
                 'amountCriteria': 50,
                 'unlocked': false,
-                'buff': 2,
+                'multiplier': 2,
             },
         ],
         autoGrandma = [
             strengthMulitiplier1 = {
                 'amountCriteria': 25,
                 'unlocked': false,
-                'buff': 2,
+                'multiplier': 2,
             },
             strengthMulitiplier2 = {
                 'amountCriteria': 50,
                 'unlocked': false,
-                'buff': 2,
+                'multiplier': 2,
             },
         ],
         autoFarm = [
             strengthMulitiplier1 = {
                 'amountCriteria': 25,
                 'unlocked': false,
-                'buff': 2,
+                'multiplier': 2,
             },
             strengthMulitiplier2 = {
                 'amountCriteria': 50,
                 'unlocked': false,
-                'buff': 2,
+                'multiplier': 2,
             },
         ],
     ],
     'buffs': {
-
+        
     }
 }
 
@@ -81,7 +81,9 @@ function updateView() {
         <div>Waffles per second:${model.incomePerSec.toFixed(1)}</div>
     </div>
     <div id="waffle" onclick="clicker()"><img src="img/waffle.png" alt=""/></div>
-    <div id="buffs">Buffs</div>
+    <div id="buffs">
+        
+    </div>
     <div id="upgrades">
         <div onclick="buyUpgrade(0)"><img src="img/cursor.png" alt=""/>${model.upgrades[0].autoAmount}</div>
         <div onclick="buyUpgrade(0)"> Cost: ${model.upgrades[0].autoPrice}</div>
@@ -133,13 +135,17 @@ function buyUpgrade(upgradeType) {
     updateView();
 }
 
+function buyBuff(){
+
+}
+
 function checkUnlocks() {
-    for (buff in model.passiveBuffs) {
-        for (tier in model.passiveBuffs[buff]) {
+    for (buff in model.autoBuffs) {
+        for (tier in model.autoBuffs[buff]) {
             const upgradeBuff = model.upgrades[buff];
-            const upgradeBuffTier = model.passiveBuffs[buff][tier];
+            const upgradeBuffTier = model.autoBuffs[buff][tier];
             if (upgradeBuff.autoAmount >= upgradeBuffTier.amountCriteria && upgradeBuffTier.unlocked == false) {
-                upgradeBuff.autoStrength *= upgradeBuffTier.buff;
+                upgradeBuff.autoStrength *= upgradeBuffTier.multiplier;
                 upgradeBuffTier.unlocked = true;
             }
         }
